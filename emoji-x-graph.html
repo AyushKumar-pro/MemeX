@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouth-Watering Emoji Line Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body {
+        background: linear-gradient(180deg, var(--bg), #0a0c11 60%, var(--bg));
+        color: #e6e9ef;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Inter, Arial, sans-serif;
+      }
+      .chart-container {
+        width: calc(100% - 48px);
+        margin: 0;
+        background: #1a1f2b;
+        border-radius: 18px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        padding: 24px;
+      }
+      h2 {
+        text-align: center;
+        margin-top: 20px;
+        font-size: clamp(36px, 4vh, 40px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chart-container">
+      <canvas id="emojiLineChart"></canvas>
+    </div>
+    <h2>Line Graph</h2>
+    <script>
+      const ctx = document.getElementById("emojiLineChart").getContext("2d");
+      const initialPoints = 7;
+      const intervalSeconds = 3;
+      const now = new Date();
+      const labels = [];
+      for (let i = initialPoints - 1; i >= 0; i--) {
+        const past = new Date(now.getTime() - i * intervalSeconds * 1000);
+        const timeStr = past.toLocaleTimeString([], {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        labels.push(timeStr);
+      }
+      const data = {
+        labels: labels,
+        datasets: [
+          {
+            label: "Stock Appetite",
+            data: [2, 4, 3, 5, 6, 7, 8],
+            borderColor: "#7c5cff",
+            backgroundColor: "rgba(124, 92, 255, 0.15)",
+            fill: true,
+            tension: 0.4,
+            pointRadius: 6,
+            pointHoverRadius: 8,
+            pointBackgroundColor: "#7c5cff",
+            pointBorderColor: "#fff",
+            pointBorderWidth: 2,
+          },
+        ],
+      };
+      const chart = new Chart(ctx, {
+        type: "line",
+        data: data,
+        options: {
+          plugins: {
+            legend: { display: false },
+          },
+          scales: {
+            x: { grid: { color: "#222" }, ticks: { color: "#e6e9ef" } },
+            y: {
+              grid: { color: "#222" },
+              ticks: { color: "#e6e9ef" },
+              beginAtZero: true,
+            },
+          },
+          animation: false,
+        },
+      });
+
+      // Animate the graph by shifting data every 3 seconds and add time to label
+      setInterval(() => {
+        // Remove first data point and label
+        data.labels.shift();
+        data.datasets[0].data.shift();
+        // Add new time label
+        const now = new Date();
+        const timeStr = now.toLocaleTimeString([], {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+        data.labels.push(timeStr);
+        data.datasets[0].data.push(Math.floor(Math.random() * 10) + 1);
+        chart.update();
+      }, 3000);
+    </script>
+  </body>
+</html>

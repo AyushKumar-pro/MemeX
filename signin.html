@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link rel="stylesheet" href="memex.css" />
+  </head>
+  <body style="display: flex; justify-content: center; align-items: center">
+    <div class="card" style="width: min(400px, 90%); padding: 20px">
+      <h1 class="section-title" style="text-align: center; margin-bottom: 0">
+        Signup
+      </h1>
+      <p class="section-desc" style="text-align: center; margin-bottom: 20px">
+        Create your account to get started!
+      </p>
+      <form class="contact" id="form">
+        <div class="field">
+          <label for="firstname-input">Firstname</label>
+          <input
+            type="text"
+            name="firstname"
+            id="firstname-input"
+            placeholder="Your first name"
+          />
+        </div>
+        <div class="field">
+          <label for="email-input">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email-input"
+            placeholder="you@example.com"
+          />
+        </div>
+        <div class="field">
+          <label for="password-input">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password-input"
+            placeholder="Create a password"
+          />
+        </div>
+        <div class="field">
+          <label for="repeat-password-input">Repeat Password</label>
+          <input
+            type="password"
+            name="repeat-password"
+            id="repeat-password-input"
+            placeholder="Re-enter password"
+          />
+        </div>
+        <div
+          style="
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+          "
+        >
+          <button type="submit" class="btn" style="width: 100%">Signup</button>
+          <a href="login.html" class="note">Already have an account? Login</a>
+          <button
+            type="button"
+            class="btn secondary"
+            style="width: 100%"
+            onclick="window.location.href='memex.html'"
+          >
+            Back to Home
+          </button>
+        </div>
+      </form>
+    </div>
+    <script>
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var firstname = document.getElementById("firstname-input").value.trim();
+        var email = document.getElementById("email-input").value.trim();
+        var password = document.getElementById("password-input").value.trim();
+        var repeatPassword = document
+          .getElementById("repeat-password-input")
+          .value.trim();
+        if (!firstname || !email || !password || !repeatPassword) {
+          alert("Please fill in all fields.");
+          return;
+        }
+        if (password !== repeatPassword) {
+          alert("Passwords do not match.");
+          return;
+        }
+        // Here you would normally validate and create the account
+        window.location.href = "after-login.html"; // Change to your dashboard page
+      });
+    </script>
+  </body>
+</html>

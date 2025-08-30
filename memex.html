@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MemeX -Meme stocks</title>
+    <meta name="description" content="MemeX - Meme stocks dashboard" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="memex.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav class="nav" aria-label="Primary">
+      <div class="container nav-inner">
+        <a class="brand" href="#home" aria-label="Nova home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>MemeX</span>
+        </a>
+        <div class="menu desktop" role="menubar">
+          <a role="menuitem" href="#features">Features</a>
+          <a role="menuitem" href="#work">Stocks</a>
+          <a role="menuitem" href="#pricing">About</a>
+          <a role="menuitem" href="#contact">Contact</a>
+        </div>
+
+        <div class="menu">
+          <a href="signin.html">
+            <button
+              class="btn secondary"
+              style="margin-left: 7px; font-size: clamp(14px, 3vw, 16px)"
+              id="themeToggle"
+              aria-label="Toggle theme"
+            >
+              Signup
+            </button>
+          </a>
+          <button
+            class="btn ghost ghost menu"
+            id="menuToggle"
+            aria-label="Open menu"
+          >
+            ☰
+          </button>
+        </div>
+      </div>
+    </nav>
+    <div id="drawer" hidden>
+      <div
+        style="
+          position: absolute;
+          right: 0;
+          top: 0;
+          height: 100%;
+          width: min(80%, 360px);
+          background: var(--card);
+          border-left: 1px solid
+            color-mix(in oklab, var(--soft) 60%, transparent);
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+          "
+        >
+          <div class="brand"><span class="logo"></span>MemeX<span></span></div>
+          <button
+            class="btn secondary"
+            id="drawerClose"
+            aria-label="Close menu"
+            style="outline: none; border: none"
+          >
+            ✕
+          </button>
+        </div>
+        <a href="#features" class="btn ghost" onclick="closeDrawer()"
+          >Features</a
+        >
+        <a href="#work" class="btn ghost" onclick="closeDrawer()">Stocks</a>
+        <a href="#pricing" class="btn ghost" onclick="closeDrawer()">About</a>
+        <a href="#contact" class="btn ghost" onclick="closeDrawer()">Contact</a>
+      </div>
+    </div>
+
+    <header id="home" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">✨ Latest Memes, emojis and trends</span>
+          <h1 class="title">MemeX: Because Memes Deserve Their Own Economy.</h1>
+          <p class="subtitle">
+            Stay ahead of the meme economy <br />
+            invest in the latest trends and emojis before they go viral and
+            everyone else jumps in.
+          </p>
+          <div class="hero-cta">
+            <a class="btn started" href="signin.html">Get Started</a>
+            <a class="btn secondary started" href="#work">See Examples</a>
+          </div>
+          <div class="hero-card" aria-live="polite">
+            <strong>Categories</strong>
+            <div class="kpis">
+              <a href="cate-meme.html">
+                <div class="kpi img1">
+                  <strong>Memes</strong>
+                </div>
+              </a>
+              <a href="cate-meme.html">
+                <div class="kpi img2">
+                  <strong>Emojis</strong>
+                </div>
+              </a>
+              <a href="cate-meme.html">
+                <div class="kpi img3">
+                  <strong>Viral Trends</strong>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <img width="100%" height="100%" src="hero.gif" alt="Meme.gif" />
+        </div>
+      </div>
+    </header>
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Features</h2>
+        <p class="section-desc">Everything you need to know about MemeX.</p>
+        <div class="features">
+          <article class="feature">
+            <div class="icon" aria-hidden="true">
+              <img src="f-track.jpg" alt="" />
+            </div>
+            <h4>Track</h4>
+            <p class="note">
+              Stay updated with real-time meme market trends, popularity
+              charts..
+            </p>
+            <a href="track.html"><button type="button">Learn More</button></a>
+          </article>
+          <article class="feature">
+            <div class="icon" aria-hidden="true">
+              <img src="f-trade.jpg" alt="" />
+            </div>
+            <h4>Trade</h4>
+            <p class="note">
+              Buy and sell meme coins, emojis, and viral trends just like..
+            </p>
+            <a href="trade.html">
+              <button type="button">Learn More</button>
+            </a>
+          </article>
+          <article class="feature">
+            <div class="icon" aria-hidden="true">
+              <img src="f-invest.jpg" alt="" />
+            </div>
+            <h4>Invest</h4>
+            <p class="note">
+              Put your resources into the most promising memes of tomorrow..
+            </p>
+            <a href="invest.html">
+              <button type="button">Learn More</button>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="work">
+      <div class="container">
+        <h2 class="section-title">Stocks</h2>
+        <p class="section-desc">
+          Check out some of the trending meme stocks on MemeX.
+        </p>
+        <div class="showcase">
+          <article class="card space">
+            <div class="body">
+              <h4>
+                <img
+                  style="border-radius: 30px"
+                  width="60px"
+                  height="60px"
+                  src="stat-emoji.png"
+                  alt=""
+                />
+                <span>Mouth watering emoji</span>
+              </h4>
+              <p class="note">Huge emoji marketplace with NFT support.</p>
+            </div>
+            <iframe
+              class="stocks"
+              src="mouth-watering-emoji-graph.html"
+              frameborder="0"
+            >
+              Your browser doesn't support iframes
+            </iframe>
+          </article>
+          <article class="card imgstock">
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                max-height: 450px;
+                overflow-y: auto;
+                padding-right: 8px;
+              "
+            >
+              <div class="stock-card">
+                <div class="thing">
+                  <img width="100%" src="stat-emoji.png" alt="" />
+                </div>
+                <div class="thing-name">Mouth watering emoji</div>
+                <div class="thing-price">100<sub>INR</sub></div>
+                <button class="view-chart" type="button">View Chart</button>
+              </div>
+              <div class="stock-card">
+                <div class="thing">
+                  <img width="100%" src="stat-meme.jpg" alt="" />
+                </div>
+                <div class="thing-name">Sad Cat</div>
+                <div class="thing-price">249<sub>INR</sub></div>
+                <button class="view-chart" type="button">View Chart</button>
+              </div>
+              <div class="stock-card">
+                <div class="thing">
+                  <img width="100%" src="stat-trend.jpg" alt="" />
+                </div>
+                <div class="thing-name">Ghibli</div>
+                <div class="thing-price">179<sub>INR</sub></div>
+                <button class="view-chart" type="button">View Chart</button>
+              </div>
+              <div class="stock-card">
+                <div class="thing">
+                  <img width="100%" src="stat-emoji2.jpg" alt="" />
+                </div>
+                <div class="thing-name">Dead Rose</div>
+                <div class="thing-price">69<sub>INR</sub></div>
+                <button class="view-chart" type="button">View Chart</button>
+              </div>
+              <div class="stock-card">
+                <div class="thing">
+                  <img width="100%" src="stat-meme2.jpg" alt="" />
+                </div>
+                <div class="thing-name">Dogesh</div>
+                <div class="thing-price">999<sub>INR</sub></div>
+                <button class="view-chart" type="button">View Chart</button>
+              </div>
+              <div class="stock-card">
+                <div class="thing">
+                  <img width="100%" src="stat-trend2.jpg" alt="" />
+                </div>
+                <div class="thing-name">Blue black v/s white gold</div>
+                <div class="thing-price">699<sub>INR</sub></div>
+                <button class="view-chart" type="button">View Chart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <div class="container">
+      <h2 class="section-title">About MemeX</h2>
+      <p class="section-desc">
+        We're building the future of digital asset trading, one meme at a time.
+        MemeX is a unique platform where you can track, trade, and invest in the
+        most popular memes, emojis, and viral trends. We believe that culture
+        has value, and our mission is to create an economy around the digital
+        trends that shape our online world.
+      </p>
+      <div class="features">
+        <article class="feature dyna">
+          <div class="icon" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-trending-up"
+            >
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+          <h4>Our Vision</h4>
+          <p class="note">
+            To be the global leader in meme economics, providing a transparent
+            and exciting marketplace for cultural assets.
+          </p>
+        </article>
+        <article class="feature dyna">
+          <div class="icon" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-users"
+            >
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path
+                d="M23 21v-2a4 4 0 0 0-3-3.87c-.5-.01-.98-.01-1.48-.01"
+              ></path>
+              <path d="M15 9a4 4 0 0 1 4 4v6"></path>
+              <path d="M15 9a4 0 0 0 0-8c0 4.42-3.58 8-8 8"></path>
+            </svg>
+          </div>
+          <h4>Our Team</h4>
+          <p class="note">
+            A dedicated group of developers, designers, and meme enthusiasts
+            working to bring you the best trading experience.
+          </p>
+        </article>
+        <article class="feature dyna">
+          <div class="icon" aria-hidden="true">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-shield"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h4>Security</h4>
+          <p class="note">
+            Your security is our top priority. We use advanced encryption and
+            robust security protocols to protect your data and investments.
+          </p>
+        </article>
+      </div>
+    </div>
+    <div class="container spacing">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="section-desc">
+        Have a question, feedback, or just want to say hi? Fill out the form
+        below and we'll get back to you as soon as possible.
+      </p>
+      <form class="contact" id="contact-form">
+        <div class="fields">
+          <div class="field">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              placeholder="Enter Your Full Name"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter Your Email Address"
+              name="email"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input
+              type="text"
+              id="subject"
+              placeholder="Subject"
+              name="subject"
+              required
+            />
+          </div>
+          <div class="field">
+            <label for="inquiry-type">Inquiry Type</label>
+            <select id="inquiry-type" name="inquiry-type">
+              <option value="general">General Inquiry</option>
+              <option value="support">Technical Support</option>
+              <option value="business">Business Partnership</option>
+              <option value="feedback">Feedback</option>
+            </select>
+          </div>
+        </div>
+        <div class="field message">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <div class="actions" style="margin-top: 20px">
+          <button type="submit" class="btn">Send Message</button>
+        </div>
+      </form>
+    </div>
+    <footer>
+      <div class="container footer-grid">
+        <div>
+          <div class="brand"><span class="logo"></span><span>MemeX</span></div>
+          <p class="note" style="margin-top: 8px">
+            © <span id="year"></span> MemeX. All rights reserved.
+          </p>
+        </div>
+        <div>
+          <strong>Company</strong>
+          <ul class="note">
+            <li><a href="#features">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Resources</strong>
+          <ul class="note">
+            <li><a href="#">Docs</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <strong>Follow</strong>
+          <div class="socials">
+            <div class="socials-container">
+              <a
+                data-social="Twitter"
+                style="
+                  --accent-color: black;
+                  width: fit-content;
+                  height: fit-content;
+                "
+                href="https://x.com/codingtogo"
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>X</title>
+                  <path
+                    d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+                  />
+                </svg>
+              </a>
+              <a
+                data-social="YouTube"
+                style="
+                  --accent-color: red;
+                  width: fit-content;
+                  height: fit-content;
+                "
+                href="https://youtube.com/@coding2go"
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>YouTube</title>
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+              <a
+                data-social="Instagram"
+                style="
+                  --accent-color: #fe107c;
+                  width: fit-content;
+                  height: fit-content;
+                "
+                href="#"
+              >
+                <svg
+                  role="img"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>Instagram</title>
+                  <path
+                    d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Chart data for each stock card
+        const chartData = [
+          {
+            src: "mouth-watering-emoji-graph.html",
+            img: "stat-emoji.png",
+            title: "Mouth watering emoji",
+            note: "Huge emoji marketplace with NFT support.",
+          },
+          {
+            src: "trending-meme-graph.html",
+            img: "stat-meme.jpg",
+            title: "Sad Cat",
+            note: "The hottest meme in the market right now!",
+          },
+          {
+            src: "viral-trend-graph.html",
+            img: "stat-trend.jpg",
+            title: "Ghibli",
+            note: "Track the latest viral trends and their performance.",
+          },
+          {
+            src: "paw-coin-graph.html",
+            img: "stat-emoji2.jpg",
+            title: "Dead Rose",
+            note: "Dead Rose",
+          },
+          {
+            src: "emoji-x-graph.html",
+            img: "stat-meme2.jpg",
+            title: "Dogesh",
+            note: "The famous dog",
+          },
+          {
+            src: "viral-trend-graph.html",
+            img: "stat-trend2.jpg",
+            title: "Blue black v/s white gold",
+            note: "Guss the color..",
+          },
+        ];
+
+        const viewChartButtons = document.querySelectorAll(".view-chart");
+        const iframe = document.querySelector("iframe.stocks");
+        const bodyDiv = document.querySelector(".card.space .body");
+        viewChartButtons.forEach((btn, idx) => {
+          btn.addEventListener("click", function () {
+            // Change iframe src
+            iframe.src = chartData[idx].src;
+            // Change image and h4 text
+            bodyDiv.querySelector("img").src = chartData[idx].img;
+            bodyDiv.querySelector("span").textContent = chartData[idx].title;
+            // Change note
+            bodyDiv.querySelector(".note").textContent = chartData[idx].note;
+          });
+        });
+      });
+      const menuToggle = document.getElementById("menuToggle");
+      const drawer = document.getElementById("drawer");
+      const drawerClose = document.getElementById("drawerClose");
+
+      function openDrawer() {
+        drawer.removeAttribute("hidden");
+      }
+      function closeDrawer() {
+        drawer.setAttribute("hidden", "");
+      }
+
+      menuToggle.addEventListener("click", openDrawer);
+      if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
+
+      const scrollElements = document.querySelectorAll(".scroll-anim");
+
+      const elementInView = (el, dividend = 1) => {
+        const elementTop = el.getBoundingClientRect().top;
+        return (
+          elementTop <=
+          (window.innerHeight || document.documentElement.clientHeight) /
+            dividend
+        );
+      };
+
+      const displayScrollElement = (element) => {
+        element.classList.add("show");
+      };
+
+      const handleScrollAnimation = () => {
+        scrollElements.forEach((el) => {
+          if (elementInView(el, 1.25)) {
+            displayScrollElement(el);
+          }
+        });
+      };
+
+      window.addEventListener("scroll", () => {
+        handleScrollAnimation();
+      });
+
+      // Initial check to animate elements already in view on page load
+      window.addEventListener("DOMContentLoaded", () => {
+        handleScrollAnimation();
+      });
+    </script>
+  </body>
+</html>

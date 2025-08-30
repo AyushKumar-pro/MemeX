@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="memex.css" />
+  </head>
+  <body style="display: flex; justify-content: center; align-items: center">
+    <div class="card" style="width: min(400px, 90%); padding: 20px">
+      <h1 class="section-title" style="text-align: center; margin-bottom: 0">
+        Login
+      </h1>
+      <p class="section-desc" style="text-align: center; margin-bottom: 20px">
+        Welcome back! Please log in to continue.
+      </p>
+      <form class="contact" id="form">
+        <div class="field">
+          <label for="email-input">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email-input"
+            placeholder="you@example.com"
+          />
+        </div>
+        <div class="field">
+          <label for="password-input">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password-input"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div
+          style="
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+          "
+        >
+          <button type="submit" class="btn" style="width: 100%">Login</button>
+          <a href="signin.html" class="note">New here? Create an Account</a>
+          <button
+            type="button"
+            class="btn secondary"
+            style="width: 100%"
+            onclick="window.location.href='memex.html'"
+          >
+            Back to Home
+          </button>
+        </div>
+      </form>
+    </div>
+    <script>
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var email = document.getElementById("email-input").value.trim();
+        var password = document.getElementById("password-input").value.trim();
+        if (!email || !password) {
+          alert("Please fill in both email and password.");
+          return;
+        }
+        // Here you would normally validate credentials
+        window.location.href = "after-login.html"; // Change to your dashboard page
+      });
+    </script>
+  </body>
+</html>
